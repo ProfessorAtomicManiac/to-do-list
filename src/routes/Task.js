@@ -1,27 +1,28 @@
 import { writable } from 'svelte/store';
 
-function init() {
-    const { subscribe, set, update } = writable([]);
-    return {
-        subscribe,
-        add: (task) => {
-            update(list => list = [...list, task]);
-        },
-        remove: (index) => {
-            update((list) => list = list.filter((ele, ind) => index != ind))
-        },
-        reset: set([])
-    }
+// TaskList class
+// This is coming from a guy who primarily uses Java
+export function TaskList(name) {
+    let _name = name;
+
+    const _taskList = writable([]);
+    this.add = (task) => {
+        _taskList.update(list => list = [...list, task]);
+    };
+    this.remove = (index) => {
+        _taskList.update((list) => list = list.filter((ele, ind) => index != ind))
+    };
+    this.reset = _taskList.set([]);
+    this.subscribe = _taskList.subscribe;
+    this.getName = () => _name,
+    this.getTaskList = () => _taskList
 }
 
-export const taskList = init();
-
-export function Task(title, desc, list) {
+// Task class
+export function Task(title = "", desc = []) {
     let _title = title;
     let _desc = desc;
-    let _list = list;
 
     this.getTitle = () => _title;
     this.getDesc = () => _desc;
-    this.getList = () => _list;
 }
