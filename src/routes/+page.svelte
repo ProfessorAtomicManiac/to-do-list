@@ -15,9 +15,11 @@
 		console.log(screenWidth);
 	}
 	$: console.log(width);
+	let num = 0;
 	let bruh = () => {
-		todo.add(new Task("dkjs", "kdsjl"));
+		todo.add(new Task(num, "kdsjl"));
 		console.log("bruh");
+		num += 1;
 	};
 </script>
 
@@ -28,7 +30,7 @@
 <div class="container">
 	<TaskListEle taskList={todo} {width}/>
 	<TaskListEle taskList={done} {width}/>
-	<button style:width={width}>+ Add New List</button>
+	<button on:click={bruh} style:width={width}>+ Add New List</button>
 </div>
 
 <style>

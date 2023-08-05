@@ -1,36 +1,40 @@
 <script>
-    export let taskList;
-    export let width;
+    // All Event Listeners and "Viewing" code is put here
+    // The storage is handled in Task.js
+    import { Task } from './Task.js';
 
-    import { onDestroy } from 'svelte';
+    export let taskList; // TaskList instance in Task.js
 
-    let tasks;
-    let unsubscribe = taskList.getTaskList().subscribe((list) => {
-        tasks = list
-    });
+    let tasks = taskList.getTaskList();
 
-    onDestroy(unsubscribe);
+    function add() {
+        taskList.add(new Task("kekw", "kekw"));
+    }
+
+    function del(ind) {
+        taskList.remove(ind);
+    }
+
 </script>
 
-<!-- I really don't like how I have to separate style:--width from the regular css
-     reason I did this was cuz if style:width value changes, it doesn't update. so I
-     had to make it an exported prop. but since that involves js it can't directly
-     involve with the css -->
-<div class="container" style:--width={width}>
+<div class="container">
     <h2>{taskList.getName()}</h2>
     <ul>
-        {#each tasks as task}
+        {#each $tasks as task, i}
             <li>
                 <span>{task.getTitle()}</span>
-                <button>delete</button>
+                <button on:click={() => del(i)}>delete</button>
             </li>
         {/each}
+        <li>
+            <button on:click={add}>Add Item</button>
+        </li>
     </ul>
 </div>
 
 <style>
     * {
-        --width: 0;
+        --width: 20%;
         font-family: Roboto, Montserrat;
         background-color: #ececec;
         box-sizing: border-box;
