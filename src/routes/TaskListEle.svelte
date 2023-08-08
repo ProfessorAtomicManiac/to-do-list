@@ -2,7 +2,7 @@
     // All Event Listeners and "Viewing" code is put here
     // The storage is handled in Task.js
     import { Task } from './Task.js';
-    import { beforeUpdate, afterUpdate, tick } from 'svelte';
+    import { afterUpdate } from 'svelte';
 
     export let taskList; // TaskList instance in Task.js
 
@@ -34,9 +34,7 @@
 
     afterUpdate(() => {
         if (autoscroll) {
-            console.log("bruh");
             window.scrollTo(0, div.offsetTop + div.scrollHeight + 50);
-            console.log(div.scrollHeight + " " + div.offsetTop + " " + div.offsetParent);
             autoscroll = false;
         }
     })
