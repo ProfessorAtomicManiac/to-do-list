@@ -64,7 +64,6 @@
 <style>
     * {
         --width: 50%;
-        font-family: Roboto, Montserrat;
         background-color: #ececec;
         box-sizing: border-box;
     }
@@ -78,17 +77,19 @@
     }
     h2 {
         text-align: center;
+        font-family: 'Montserrat';
     }
     ul,li { 
         list-style-type: none;
         padding: 0;
+        font-family: 'Roboto';
     }
     li {
         display: flex;
         border: 1px solid black;
         margin: 5px;
         padding: 5px;
-        background-color: blue;
+        background-color: blue;    
     }
     li:last-of-type {
         padding: 0px;
