@@ -10,14 +10,13 @@
 </script>
 
 
-<h1>Todo List</h1>
+<body>
+	<TaskListEle taskList={todo} />
 
-<div class="container">
-	<TaskListEle taskList={todo}/>
-</div>
+</body>
 
 <style>
-	.container {
+	body {
 		display: flex;
 		justify-content: center;
 		width: 100%;
