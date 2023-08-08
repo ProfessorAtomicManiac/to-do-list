@@ -47,11 +47,10 @@
         {#each $tasks as task, i}
             <li>
                 <span>{task.getTitle()}</span>
-                <button on:click={() => del(i)}>delete</button>
+                <button on:click={() => del(i)} aria-label="Remove">delete</button>
             </li>
         {/each}
         <li>
-            <!-- Everytime you submit, make it scroll down so that it doesn't go to the top of the page-->
             <form on:submit={(e) => {e.preventDefault(); add(); }}>
                 <input bind:this={inputEle} bind:value={text} placeholder={placeholderText} maxlength=60/>
             </form>
@@ -61,47 +60,67 @@
 
 <style>
     * {
-        --width: 50%;
-        background-color: #ececec;
+        --debug-background-color: #ececec;
+        background-color: var(--debug-background-color);
         box-sizing: border-box;
     }
     div {
+        --task-list-width: 50%;
+        --task-list-border-width: 2px;
+        --task-list-border-color: black;
+        --task-list-margin: 5px;
+        --task-list-padding: 5px;
+        --task-list-background-color: red;
+
+        --font-heading: 'Montserrat';
+        --font-regular-text: 'Roboto';
+
         display: inline-block;
-        border: 2px solid black;
-        margin: 5px;
-        padding: 5px;
-        width: var(--width);
-        background-color: red;
+        border: var(--task-list-border-width) solid var(--task-list-border-color);
+        margin: var(--task-list-margin);
+        padding: var(--task-list-padding);
+        width: var(--task-list-width);
+        background-color: var(--task-list-background-color);
     }
     h2 {
         text-align: center;
-        font-family: 'Montserrat';
+        font-family: var(--font-heading);
     }
     ul,li { 
         list-style-type: none;
         padding: 0;
-        font-family: 'Roboto';
+        font-family: var(--font-regular-text);
     }
     li {
+        --task-border-width: 1px;
+        --task-border-color: black;
+        --task-margin: 5px;
+        --task-padding: 5px;
+        --task-background-color: blue;
+
         display: flex;
-        border: 1px solid black;
-        margin: 5px;
-        padding: 5px;
-        background-color: blue;    
+        border: var(--task-border-width) solid var(--task-background-color);
+        margin: var(--task-margin);
+        padding: var(--task-padding);
+        background-color: var(--task-background-color);    
     }
     li:last-of-type {
-        padding: 0px;
+        padding: 0;
     }
     form {
         width: 100%;
     }
     input {
-        padding: 5px;
+        padding: var(--task-padding);
         flex: 1;
         width: 100%;
     }
     span {
         flex: 1;
     }
-    
+    button {
+        background-color: white;
+        aspect-ratio: 1 / 1;
+        height: 20px;
+	}   
 </style>
