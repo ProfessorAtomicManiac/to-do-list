@@ -34,22 +34,10 @@
 
 <style>
     * {
-        --width: 20%;
+        --width: 50%;
         font-family: Roboto, Montserrat;
         background-color: #ececec;
         box-sizing: border-box;
-    }
-    ul,li { 
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        display: flex;
-        border: 1px solid black;
-        margin: 5px, 5px;
-    }
-    span {
-        flex: 1;
     }
     div {
         display: inline-block;
@@ -59,4 +47,21 @@
         width: var(--width);
         background-color: red;
     }
+    h2 {
+        text-align: center;
+    }
+    ul,li { 
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        display: flex;
+        border: 1px solid black;
+        margin: 5px;
+        padding: 5px;
+    }
+    span {
+        flex: 1;
+    }
+    
 </style>
