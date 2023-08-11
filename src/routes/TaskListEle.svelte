@@ -70,6 +70,7 @@
         --debug-background-color: #fff;
         background-color: var(--debug-background-color);
         box-sizing: border-box;
+        --border-radius: 10px;
     }
     div {
         --task-list-width: 50%;
@@ -84,6 +85,7 @@
 
         display: inline-block;
         border: var(--task-list-border-width) solid var(--task-list-border-color);
+        border-radius: var(--border-radius);
         margin: var(--task-list-margin);
         padding: var(--task-list-padding);
         width: var(--task-list-width);
@@ -106,9 +108,10 @@
         --task-name-margin: calc(5px - var(--task-padding));
         --task-background-color: #fff;
         --task-height: 2em;
-
+        
         display: flex;
         border: var(--task-border-width) solid var(--task-border-color);
+        border-radius: var(--border-radius);
         margin: var(--task-margin);
         padding: var(--task-padding);
         background-color: var(--task-background-color); 
@@ -119,6 +122,7 @@
     }
     li:last-of-type {
         padding: 0;
+        border: none;
     }
     form {
         width: 100%;
@@ -128,7 +132,9 @@
         flex: 1;
         width: 100%;
         height: 100%;
-        border: none;
+        border: var(--task-border-width) solid var(--task-border-color);
+        background: none;
+        border-radius: var(--border-radius);
     }
     .hidden {
         flex: 1;
@@ -150,6 +156,7 @@
         so i did this instead. i really hate it*/
         height: calc(var(--task-height) - var(--task-padding));
         border: var(--btn-border-width) solid var(--btn-border-color);
+        border-radius: var(--border-radius);
 	}
     svg {
         background-color: transparent;
