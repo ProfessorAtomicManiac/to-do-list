@@ -138,8 +138,6 @@
         --btn-border-color: #dadcde;
         --btn-bg-color: #ffffff;
         --btn-hover-bg-color: #dadcde;
-        /* would realy like to make --btn-side-length: 100% but it sets it to 16px, no idea why */
-        --btn-side-length: 100%;
         --btn-trash-can-color: #6c757d;
         background-color: var(--btn-bg-color);
         color: var(--btn-trash-can-color);
@@ -148,6 +146,8 @@
         padding: 0;
         margin: 0;
         aspect-ratio: 1 / 1;
+        /* would have liked to make height: 100% but it doesn't get the height of the flex parent, 
+        so i did this instead. i really hate it*/
         height: calc(var(--task-height) - var(--task-padding));
         border: var(--btn-border-width) solid var(--btn-border-color);
 	}
