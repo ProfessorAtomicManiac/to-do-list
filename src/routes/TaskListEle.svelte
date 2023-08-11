@@ -120,6 +120,7 @@
         padding: var(--task-padding);
         flex: 1;
         width: 100%;
+        border: none;
     }
     span {
         flex: 1;
