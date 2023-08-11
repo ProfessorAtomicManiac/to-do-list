@@ -127,6 +127,7 @@
         padding: calc(var(--task-padding) + var(--task-name-margin));
         flex: 1;
         width: 100%;
+        height: 100%;
         border: none;
     }
     .hidden {
