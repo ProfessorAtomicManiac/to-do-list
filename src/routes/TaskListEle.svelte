@@ -66,7 +66,7 @@
 
 <style>
     * {
-        --debug-background-color: #ececec;
+        --debug-background-color: #fff;
         background-color: var(--debug-background-color);
         box-sizing: border-box;
     }
@@ -76,7 +76,7 @@
         --task-list-border-color: black;
         --task-list-margin: 5px;
         --task-list-padding: 5px;
-        --task-list-background-color: red;
+        --task-list-background-color: #fff;
 
         --font-heading: 'Montserrat';
         --font-regular-text: 'Roboto';
@@ -102,10 +102,10 @@
         --task-border-color: black;
         --task-margin: 5px;
         --task-padding: 5px;
-        --task-background-color: blue;
+        --task-background-color: #fff;
 
         display: flex;
-        border: var(--task-border-width) solid var(--task-background-color);
+        border: var(--task-border-width) solid var(--task-border-color);
         margin: var(--task-margin);
         padding: var(--task-padding);
         background-color: var(--task-background-color);    
