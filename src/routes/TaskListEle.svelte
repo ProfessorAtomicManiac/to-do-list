@@ -39,13 +39,38 @@
         }
     })
 
+    // Drag and drop
+
+    function makeDraggable(node, i) {
+        node.setAttribute("draggable", true);
+        node.addEventListener("dragstart", (event) => {
+            event.dataTransfer.setData("text/plain", i);
+        })
+
+        node.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = "move";
+        })
+
+        node.addEventListener("drop", (event) => {
+            event.preventDefault();
+            const ind = event.dataTransfer.getData("text/plain");
+            let val = $tasks[ind];
+            taskList.remove(ind);
+            let temp = i;
+            if (i > ind) temp = i - 1;
+            taskList.insert(i, val);
+            console.log(event);
+        })
+    }
+
 </script>
 
 <div class="container" bind:this={div}>
     <h2>{taskList.getName()}</h2>
     <ul>
         {#each $tasks as task, i}
-            <li>
+            <li use:makeDraggable={i}>
                 <span class="task-name">{task.getTitle()}</span>
                 <span class="hidden"></span>
                 <button on:click={() => del(i)} aria-label="Remove">
