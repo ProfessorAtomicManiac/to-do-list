@@ -12,6 +12,14 @@ export function TaskList(name) {
     this.remove = (index) => {
         _taskList.update((list) => list = list.filter((ele, ind) => index != ind))
     };
+    this.insert = (index, val) => {
+        _taskList.update((list) => {
+            let temp = [...list];
+            temp.splice(index, 0, val); 
+            list = temp;
+            return list;
+        });
+    }
     this.reset = _taskList.set([]);
     this.subscribe = _taskList.subscribe;
     this.getName = () => _name,
