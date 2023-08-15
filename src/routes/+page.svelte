@@ -4,8 +4,10 @@
 	// testing purposes
 	let todo = new TaskList("Todo");
 	let done = new TaskList("Done");
-	todo.add(new Task("skdljf", "sdlkjfsdkfs"));
-	done.add(new Task("sjdsj", "kdsjf"));
+	todo.add(new Task("0", "sdlkjfsdkfs"));
+	todo.add(new Task("1", "kdsjf"));
+	todo.add(new Task("2", "kdsjf"));
+	todo.add(new Task("3", "kdsjf"));
 
 </script>
 
